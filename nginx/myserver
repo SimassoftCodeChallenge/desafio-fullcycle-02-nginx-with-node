@@ -1,5 +1,8 @@
 #The Nginx server instance
 server {
+    listen 8080 default_server;
+    listen [::]:8080 default_server;
+    
     listen 0.0.0.0:80;
     server_name localhost;
 
@@ -9,7 +12,7 @@ server {
       proxy_set_header Host $http_host;
       proxy_set_header X-NginX-Proxy true;
 
-      proxy_pass app:3000;
+      proxy_pass http://localhost:3000;
       proxy_redirect off;
     }    
  }
