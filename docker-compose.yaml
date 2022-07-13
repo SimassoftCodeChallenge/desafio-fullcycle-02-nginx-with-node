@@ -24,7 +24,7 @@ services:
     build:
       context: ./nginx
     ports:
-      - "81:80"
+      - "8080:80"
     networks:
       - challenge-network    
 
