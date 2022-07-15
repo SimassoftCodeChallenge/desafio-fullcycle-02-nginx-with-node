@@ -17,4 +17,5 @@ COPY . .
 
 EXPOSE 3000
 
-CMD dockerize -wait tcp://db:3306 tcp://web:80 -timeout 5s docker-entrypoint.sh
+ENTRYPOINT ["dockerize","-wait","tcp://db:3306","docker-entrypoint.sh"]
+CMD [ "node","index.js" ]

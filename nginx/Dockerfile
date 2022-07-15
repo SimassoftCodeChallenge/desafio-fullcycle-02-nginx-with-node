@@ -9,4 +9,5 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 
 COPY default.conf /etc/nginx/conf.d/
 
-CMD dockerize -wait tcp://db:3306 -timeout 2s ./docker-entrypoint.sh
+ENTRYPOINT ["dockerize","-wait", "tcp://db:3306","./docker-entrypoint.sh"]
+CMD ["nginx","-g", "daemon off;"]

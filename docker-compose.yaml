@@ -5,7 +5,6 @@ services:
     build:
       context: node
     container_name: app    
-    command: node index.js
     networks:
       - challenge-network
     volumes:
@@ -19,8 +18,7 @@ services:
       - db
 
   web:
-    container_name: web
-    command: nginx -g "daemon off;"   
+    container_name: web       
     restart: always
     build:
       context: ./nginx
